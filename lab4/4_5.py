@@ -5,9 +5,9 @@ from sklearn.decomposition import PCA
 from sklearn.mixture import GaussianMixture
 from sklearn.cluster import KMeans
 
-#url = 'https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD'
-#df = pd.read_csv(url)
-df = pd.read_csv(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab4\Fremont_Bridge_Bicycle_Counter.csv')
+url = 'https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD'
+df = pd.read_csv(url)
+#df = pd.read_csv(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab4\Fremont_Bridge_Bicycle_Counter.csv')
 
 df['Date'] = pd.to_datetime(df['Date'], dayfirst='false')
 df = df.drop(columns=[df.columns[2], df.columns[3]], axis=1)

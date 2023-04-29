@@ -6,7 +6,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import numpy as np
 
-with open(r"C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab5\sample_surface.txt") as f:
+with open("sample_surface.txt") as f:
     file_lst = [row.split() for row in f]
 
 cols = file_lst[0]

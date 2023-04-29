@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as op
 
-df = pd.read_csv(r"C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab5\sample_trajectory.txt", header=None, sep="\s+", names=['t', 'x', 'y', 'z', 'x_dot', 'y_dot', 'z_dot'])
+df = pd.read_csv("sample_trajectory.txt", header=None, sep="\s+", names=['t', 'x', 'y', 'z', 'x_dot', 'y_dot', 'z_dot'])
 
 x = list(df['x'])
 y = list(df['y'])

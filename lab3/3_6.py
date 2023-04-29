@@ -26,7 +26,7 @@ incomeMean = newDF.groupby(['car']).agg({'income': ['mean']}).reset_index()
 print(newDF)
 print(incomeMean)
 
-incomeMean.to_csv(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab3\3_6file.txt', header=None, index=None, sep=' ', mode='a')
-incomeMean.to_html(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab3\3_6file1.html')
+#incomeMean.to_csv(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab3\3_6file.txt', header=None, index=None, sep=' ', mode='a')
+#incomeMean.to_html(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab3\3_6file1.html')
 
 #table(ax, data)  

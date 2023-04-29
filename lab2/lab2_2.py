@@ -1,6 +1,7 @@
 import numpy as np
 import numpy.random as rand
-import math;
+import math
+
 r1 = rand.uniform(0, 100, 100)
 print("Задание 1")
 for i in r1:

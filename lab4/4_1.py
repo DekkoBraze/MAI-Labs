@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-#url = 'https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD'
-
-df = pd.read_csv(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab4\Fremont_Bridge_Bicycle_Counter.csv')
+url = 'https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD'
+df = pd.read_csv(url)
+#df = pd.read_csv(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab4\Fremont_Bridge_Bicycle_Counter.csv')
 
 print('Кол-во строк:', len(df))
 print('Кол-во столбцов:', len(df.columns))

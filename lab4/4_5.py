@@ -33,13 +33,32 @@ coord = []
 for a, b in zip(x, y):
     coord.append([a, b])
 
+#Кол-во кластеров
+n = 7
 coord = np.array(coord)
-
-gaus = GaussianMixture(n_components=7)
+gaus = GaussianMixture(n_components=n)
 gaus.fit(coord)
 ids = gaus.predict(coord)
 
+# Как я понял, в ids каждой точке присваивается индекс, который потом раскрашивает cmap
 plt.scatter(x, y, c=ids, s=15, cmap='viridis')
-
-#plt.scatter(x, y)
 plt.show()
+
+mon = [] #mod = 5
+tue = [] #mod = 6
+wed = [] #mod = 0
+thu = [] #mod = 1
+fri = [] #mod = 2
+sat = [] #mod = 3
+sun = [] #mod = 4
+week = [wed, thu, fri, sat, sun, mon, tue]
+
+#Первый день - среда
+for i in range(len(table.columns)):
+    mod = i % 7
+    week[mod].append(ids[i])
+
+print('Monday:')
+for i in range(n):
+    print(i, '=', mon.count(i))
+#Не было обнаружено зависимости цвета кластера от дня недели. Разброс точек напоминает график по дням.

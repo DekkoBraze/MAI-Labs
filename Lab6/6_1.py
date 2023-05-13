@@ -58,4 +58,4 @@ dmap.opts(
 doc = renderer.server_doc(dmap)
 doc.title = 'Mandelbrot Explorer'
 
-#/media/dekkobraze/58FA39F8FA39D2CC/Users/GreenDe/Desktop/VUZ/MAI-Labs/Lab6 - bokeh serve 6_1.py
+#/media/dekkobraze/58FA39F8FA39D2CCt - bokeh serve 6_1.py

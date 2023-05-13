@@ -24,4 +24,7 @@ ax.table(cellText=df.values, colLabels=df.columns, loc='center')
 
 fig.tight_layout()
 
-plt.show()
+print(df)
+print('Кол-во строк:', len(df))
+print('Кол-во столбцов:', len(df.columns))
+print(df.columns)

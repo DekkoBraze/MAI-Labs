@@ -27,10 +27,10 @@ while x <= circle[0]+circle[1][0]:
 # Триангуляция
 tri = Delaunay(points)
 # Формируем треугольники
+# simplices - возвращает индексы точек из массива points, которые формируют треугольники (каждый список в списке - отдельный треугольник)
 simp = tri.simplices
 index = [0, 1, 2, 3]
 new_simplices = np.array([simp[0]])
-
 # Удаляем треугольники внутри круга
 for i in range(1, simp.shape[0]):
     for j in range(3):
@@ -39,7 +39,7 @@ for i in range(1, simp.shape[0]):
             new_simplices[new_simplices.shape[0]-1] = simp[i]
             break
 
-# Отображение
+# Отображение. triplot рисует сетку из треугольников с заданными параметрами
 plt.triplot(points[:,0], points[:,1], new_simplices)
 plt.plot(points[:,0], points[:,1], 'o')
 

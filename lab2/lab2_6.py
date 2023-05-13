@@ -9,10 +9,8 @@ ar = ar0 + ar1
 print(ar)
 print("Задание 2")
 ar0 = np.array([0, 1, 2, 3, 4, 5])
-ar0 = ar0[None]
-
-
-
-
-
-print(ar0)
+ar0 = ar0[:, None]
+ar1 = np.array([10, 11, 12, 13, 14, 15])
+ar1 = ar1[:, None]
+ar = ar0 + ar1
+print(ar)

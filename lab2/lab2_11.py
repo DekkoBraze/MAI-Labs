@@ -21,8 +21,8 @@ def is_covered(room, sensors):
     return True 
 
 
-room = [4,6]
-sensors = [[1,1,1], [3, 3, 3]]
+room = [2,3]
+sensors = [[1,1,1], [3, 3, 3], [2, 3, 20]]
 
 
 plt.axis([0, room[0], 0, room[1]]) 
@@ -32,4 +32,5 @@ plt.axis('square')
 for j in range(len(sensors)):
     c = plt.Circle((sensors[j][0], sensors[j][1]), radius= sensors[j][2] ) #generating circle
     plt.gca().add_artist(c) # adding circle to plot
+plt.show()
 print(is_covered(room, sensors))

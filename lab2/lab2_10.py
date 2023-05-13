@@ -8,7 +8,7 @@ y = []
 z = []
 k = []
 
-lin = math.sin(55)
+lin = math.sin(30)
 for t in space:
     x.append(math.sin(t)*(math.e**math.cos(t) - 2 * math.cos(4*t) + math.sin(t/12)**5))
     y.append(math.cos(t)*(math.e**math.cos(t) - 2 * math.cos(4*t) + math.sin(t/12)**5))
@@ -19,3 +19,5 @@ plt.plot(x, y)
 plt.plot(z, k)
 
 plt.show()
+# матричное преобразование + ответ
+# Переделать с применением конкатенации матриц (или как-то так)

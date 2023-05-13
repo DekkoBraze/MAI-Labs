@@ -10,4 +10,6 @@ fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 ax.set_zlim(-2, 2)
 ax.plot_surface(x, y, z, cmap='inferno')
+ax.view_init(elev=90)
 plt.show()
+# upd

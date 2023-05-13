@@ -3,12 +3,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pandas.plotting import table 
 
-#fig, ax = plt.subplots()
-#
-#ax = plt.subplot(111, frame_on=False) 
-#ax.axis('off')
-#ax.axis('tight')
-
 df1 = pd.DataFrame({  'name':['Александр', 'Сергей', 'Петр', 'Мария', 'Анна'],
                        'age':[         29,       45,     18,      20,     27],
                     'income':[      80000,   150000,  60000,   90000, 100000]})
@@ -19,14 +13,15 @@ df2 = pd.DataFrame({ 'name':['Александр', 'Иван', 'Петр', 'Ол
 
 newDF = pd.concat([df1,df2], axis=1)
 
-newDF = newDF.loc[:,~newDF.columns.duplicated()].copy()
+# loc - формирует новый объект из указанных строк и столбцов
+# В данном случае - датафрейм, из которого исключены все дубликаты
+# Символ ~ нужен для того, чтобы взять все столбцы, кроме запрошенных в методе duplicated()
+# Символ : - это пустой срез (мы берем все строки)
+newDF = newDF.loc[:, ~newDF.columns.duplicated()]
 
-incomeMean = newDF.groupby(['car']).agg({'income': ['mean']}).reset_index()
+# agg - это метод, который позволяет выполнять операции по определенной части датафрейма
+# В данном случае мы указываем, что операция mean совершается на колонке income с групировкой записей датафрейма по значению car
+incomeMean = newDF.groupby(['car']).agg({'income': ['mean']}).reset_index() # Объяснить
 
 print(newDF)
 print(incomeMean)
-
-#incomeMean.to_csv(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab3\3_6file.txt', header=None, index=None, sep=' ', mode='a')
-#incomeMean.to_html(r'C:\Users\GreenDe\Desktop\VUZ\MAI-Labs\lab3\3_6file1.html')
-
-#table(ax, data)  

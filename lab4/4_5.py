@@ -42,23 +42,42 @@ ids = gaus.predict(coord)
 
 # Как я понял, в ids каждой точке присваивается индекс, который потом раскрашивает cmap
 plt.scatter(x, y, c=ids, s=15, cmap='viridis')
-plt.show()
 
-mon = [] #mod = 5
-tue = [] #mod = 6
-wed = [] #mod = 0
-thu = [] #mod = 1
-fri = [] #mod = 2
-sat = [] #mod = 3
-sun = [] #mod = 4
-week = [wed, thu, fri, sat, sun, mon, tue]
+#mon = [] #mod = 5
+#tue = [] #mod = 6
+#wed = [] #mod = 0
+#thu = [] #mod = 1
+#fri = [] #mod = 2
+#sat = [] #mod = 3
+#sun = [] #mod = 4
+#week = [wed, thu, fri, sat, sun, mon, tue]
+#
+##Первый день - среда
+#for i in range(len(table.columns)):
+#    mod = i % 7
+#    week[mod].append(ids[i])
+#
+#print('Monday:')
+#for i in range(n):
+#    print(i, '=', mon.count(i))
 
-#Первый день - среда
+# Кластеризация происходит по удаленности центров точек друг от друга
+# В данном случае можно найти кластеризацию по годам
+
+cols = table.columns
+
+years = {2012:[], 2013:[], 2014:[], 2015:[], 2016:[], 2017:[], 2018:[], 2019:[],
+         2020:[], 2021:[],2022:[], 2023:[]}
+
 for i in range(len(table.columns)):
-    mod = i % 7
-    week[mod].append(ids[i])
+    y = table.columns[i].year
+    years[y].append(ids[i])
 
-print('Monday:')
-for i in range(n):
-    print(i, '=', mon.count(i))
-#Не было обнаружено зависимости цвета кластера от дня недели. Разброс точек напоминает график по дням.
+for year in years:
+    lst = []
+    for i in range(n):
+        lst.append(years[year].count(i))
+    print(year, '=', lst.index(max(lst)))
+
+plt.show()
+# upd

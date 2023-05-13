@@ -15,3 +15,4 @@ w = np.array(list(map(cm.sqrt, w)))
 
 ctr = plt.plot(o, w.imag)
 plt.show()
+# Спросить про маятник

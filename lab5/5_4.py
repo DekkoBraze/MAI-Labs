@@ -13,18 +13,22 @@ cols = file_lst[0]
 del file_lst[0]
 
 df = pd.DataFrame(file_lst, columns=cols)
+df = df[df['type'] != '0']
 
 x = df['raan'].to_list()
-x = np.array(list(map(int, x)))
+x = np.array(list(map(float, x)))
 y = df['ta'].to_list()
-y = np.array(list(map(int, x)))
+y = np.array(list(map(float, y)))
 z = df['dv'].to_list()
-z = np.array(list(map(int, x)))
+z = np.array(list(map(float, z)))
+
 
 spl2d = RectBivariateSpline(df.index, [0, 1, 2, 3, 4], df)
-surf = spl2d(x, y)
+# surf - это сплайн (гладкая кривая по точкам) на заданной позиции
+surf = spl2d(x, y, grid=False)
+
 def fun(x):
-    return spl2d(x[1], x[0])[0, 0]
+    return spl2d(x[1], x[0], grid=False)
 
 bnds = ((0, 360), (0, 360))
 mn = minimize(fun, (120, 10), bounds=bnds)
@@ -51,3 +55,9 @@ print(res)
 #fig.colorbar(tri, shrink=0.5, aspect=5)
 ##plt.scatter(mn.x[0], mn.x[1], color="green", label="найденный минимум")
 #plt.show()
+
+# Построить точки в трехмерном пространстве из таблицы напрямую
+fig = plt.figure(figsize=(12, 12))
+ax = fig.add_subplot(projection='3d')
+ax.scatter(x, y, z)
+plt.show()
